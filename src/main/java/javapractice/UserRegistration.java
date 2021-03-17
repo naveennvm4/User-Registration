@@ -1,38 +1,25 @@
 package javapractice;
 
 import java.util.Scanner;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
-    public static void firstName(String name) {
-        String regex = "^[A-Z]{1}[a-zA-Z]{2,}$";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher match = pattern.matcher(name);
-        boolean bool = match.matches();
-        if (bool)
-            System.out.println(name + " is a valid name");
-        else
-            System.out.println(name + " is not a valid name");
-    }
-    public static void lastName(String name) {
-        String regex = "^[A-Z]{1}[a-zA-Z]{2,}$";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher match = pattern.matcher(name);
-        boolean bool = match.matches();
-        if (bool)
-            System.out.println(name + " is a valid last name");
-        else
-            System.out.println(name + " is not a valid last name");
+    static Scanner sc = new Scanner(System.in);
+    public static void entry(String firstName, String lastName, String email) {
+        System.out.println("First Name: " + Pattern.matches("^[A-Z]{1}[a-zA-Z]{2,}$", firstName));
+        System.out.println("Last Name: " + Pattern.matches("^[A-Z]{1}[a-zA-Z]{2,}$", lastName));
+        System.out.println("E-Mail: " + Pattern.matches("^[a-zA-Z0-9]{3,}([.]{1}+[a-zA-Z0-9]{3,})*[@]" +
+                "           {1}[a-zA-Z0-9]{2,}[.]{1}[a-zA-Z0-9]{2,}([.]{1}[a-zA-Z0-9]{2,})*$", email));
     }
     public static void main(String[] args) {
         System.out.println("Welcome to User Registration");
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter First name");
-        String firstName = sc.next();
-        System.out.println("Enter Last name");
-        String lastName = sc.next();
-        firstName(firstName);
-        lastName(lastName);
+        System.out.println("Enter first name");
+        String firstName = sc.nextLine();
+        System.out.println("Enter last name");
+        String lastName = sc.nextLine();
+        System.out.println("Enter email");
+        String email = sc.nextLine();
+        entry(firstName, lastName, email);
+
     }
 }
