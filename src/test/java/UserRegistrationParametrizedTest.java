@@ -1,6 +1,3 @@
-import javapractice.UserRegistration;
-import org.junit.Assert;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
@@ -43,11 +40,5 @@ class UserRegistrationEmailParameterizedTest {
                 { "abc@gmail.com.1a" , false, },
                 { "abc@gmail.com.aa.au" , false, }
         });
-    }
-    @Test
-    public void checkEmailValidity(){
-        UserRegistration person = new UserRegistration();
-        System.out.println("Email: "+expectedResult);
-        Assert.assertEquals(expectedResult, person.isEmail(email));
     }
 }
